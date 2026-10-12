@@ -1,0 +1,14 @@
+{"title":"Research_SummarizeThePaper — from a paper to a faithful summary",
+"subtitle":"One paper, or a small set, read in full and summarized only as far as the text supports.",
+"pattern":"flow","columns":3,
+"steps":[
+{"title":"Get the paper","text":"A DOI, URL, PDF or supplied text.","tone":"user","actor":"you"},
+{"title":"Read the primary paper","text":"Methods, results, figures or tables, discussion. Abstract only: say so prominently and limit the conclusions."},
+{"title":"Extract the evidence","text":"Question, study type, population, controls, methods; each finding traced to a result, figure or table, with units and denominators."},
+{"title":"Weigh the limitations","text":"The authors' stated limitations plus any that affect the claims; your own assessment marked as an inference."},
+{"title":"Separate the layers","text":"What the data show, what the authors propose, and what remains unknown, including conflicting results."},
+{"title":"Write for the request","text":"Question, approach, findings, significance, limitations, with depth matched to the user's purpose and claims attributed to the paper."}],
+"groups":[
+{"title":"Never","tone":"warn","items":["Infer details from the title or abstract alone","Turn association into causation, or relative enrichment into absolute abundance","Invent bibliographic details, quotations, statistics or links"]},
+{"title":"When access is incomplete","items":["Describe the gap instead of filling it from memory","Inspect supplementary data before relying on it, and cite it separately","Favor the version of record"]}],
+"source":"SKILL.md"}

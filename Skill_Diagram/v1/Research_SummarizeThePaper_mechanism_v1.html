@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=1500">
+<title>Research_SummarizeThePaper mechanism v1</title>
+<style>
+body{margin:0;background:#fff;font-family:"Segoe UI",Arial,"Microsoft YaHei",sans-serif;color:#1f2933}
+.wrap{width:1500px;padding:34px 40px 26px;box-sizing:border-box;position:relative}
+h1{font-size:31px;margin:0 0 6px;line-height:1.2}
+.sub{font-size:18px;color:#52606d;margin:0 0 26px;line-height:1.4}
+.grid{display:grid;position:relative}
+.flow{column-gap:54px;row-gap:56px}
+.lanes{column-gap:30px;row-gap:14px}
+.hub{grid-template-columns:minmax(0,1fr) minmax(0,0.9fr) minmax(0,1fr);column-gap:70px;row-gap:22px;align-items:center}
+.band{border-radius:12px;margin:-6px 0 -6px -6px;z-index:0}
+.who{grid-column:1;z-index:1;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;font-weight:700;font-size:16px;overflow-wrap:anywhere;min-width:0;border-radius:10px;padding:10px 8px;margin:4px 0}
+.step{position:relative;z-index:1;border:2px solid;border-radius:12px;padding:12px 14px 13px;font-size:15.5px;line-height:1.38;align-self:stretch}
+.lanes .step{align-self:center;margin:6px 0}
+.step.decision{border-style:dashed;border-width:2.5px}
+.head{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.head b{font-size:17px;line-height:1.3;flex:1 1 60%}
+.num{flex:0 0 auto;color:#fff;font-weight:700;font-size:14px;border-radius:50%;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;margin-top:1px}
+.actor{flex:0 0 auto;color:#fff;font-size:12px;font-weight:600;border-radius:9px;padding:2px 8px;margin-top:2px}
+.center{grid-column:2;z-index:1;border:3px solid;border-radius:16px;padding:18px 20px;font-size:16px;line-height:1.4;text-align:center}
+.center b{display:block;font-size:22px;margin-bottom:8px}
+code{font-family:Consolas,"Cascadia Mono",monospace;font-size:0.9em;background:#ffffffcc;border:1px solid #cbd2d9;border-radius:4px;padding:0 4px;overflow-wrap:anywhere}
+.groups{display:grid;gap:16px;margin-top:30px}
+.group{border:2px solid;border-radius:12px;padding:12px 16px;background:#fbfbfc;font-size:15px;line-height:1.38}
+.group b{font-size:16.5px}
+.group ul{margin:6px 0 0;padding-left:20px}.group li{margin:2px 0}
+#wires{position:absolute;left:0;top:0;overflow:visible;pointer-events:none;z-index:2}
+.foot{margin:24px 0 0;font-size:13px;color:#7b8794}
+</style></head>
+<body><div class="wrap" id="wrap">
+<h1>Research_SummarizeThePaper — from a paper to a faithful summary</h1>
+<p class="sub">One paper, or a small set, read in full and summarized only as far as the text supports.</p>
+<div class="grid flow" style="grid-template-columns:repeat(3,minmax(0,1fr));"><div class="step" id="s1" style="background:#fff4e5;border-color:#d9822b;"><div class="head"><span class="num" style="background:#d9822b">1</span><b>Get the paper</b><span class="actor" style="background:#d9822b">you</span></div><div class="txt">A DOI, URL, PDF or supplied text.</div></div><div class="step" id="s2" style="background:#e8f1fb;border-color:#2b6cb0;"><div class="head"><span class="num" style="background:#2b6cb0">2</span><b>Read the primary paper</b></div><div class="txt">Methods, results, figures or tables, discussion. Abstract only: say so prominently and limit the conclusions.</div></div><div class="step" id="s3" style="background:#e8f1fb;border-color:#2b6cb0;"><div class="head"><span class="num" style="background:#2b6cb0">3</span><b>Extract the evidence</b></div><div class="txt">Question, study type, population, controls, methods; each finding traced to a result, figure or table, with units and denominators.</div></div><div class="step" id="s4" style="background:#e8f1fb;border-color:#2b6cb0;"><div class="head"><span class="num" style="background:#2b6cb0">4</span><b>Weigh the limitations</b></div><div class="txt">The authors&#39; stated limitations plus any that affect the claims; your own assessment marked as an inference.</div></div><div class="step" id="s5" style="background:#e8f1fb;border-color:#2b6cb0;"><div class="head"><span class="num" style="background:#2b6cb0">5</span><b>Separate the layers</b></div><div class="txt">What the data show, what the authors propose, and what remains unknown, including conflicting results.</div></div><div class="step" id="s6" style="background:#e8f1fb;border-color:#2b6cb0;"><div class="head"><span class="num" style="background:#2b6cb0">6</span><b>Write for the request</b></div><div class="txt">Question, approach, findings, significance, limitations, with depth matched to the user&#39;s purpose and claims attributed to the paper.</div></div></div>
+<div class="groups" style="grid-template-columns:repeat(2,minmax(0,1fr))"><div class="group" style="border-color:#c53030"><b style="color:#c53030">Never</b><ul><li>Infer details from the title or abstract alone</li><li>Turn association into causation, or relative enrichment into absolute abundance</li><li>Invent bibliographic details, quotations, statistics or links</li></ul></div><div class="group" style="border-color:#52606d"><b style="color:#52606d">When access is incomplete</b><ul><li>Describe the gap instead of filling it from memory</li><li>Inspect supplementary data before relying on it, and cite it separately</li><li>Favor the version of record</li></ul></div></div>
+<p class="foot">Mechanism diagram v1 of <b>Research_SummarizeThePaper</b> &middot; drawn 2026-10-11 from SKILL.md</p>
+<svg id="wires"></svg>
+</div>
+<script>
+(function(){
+var wrap=document.getElementById('wrap'),svg=document.getElementById('wires'),NS='http://www.w3.org/2000/svg';
+var W=wrap.offsetWidth,H=wrap.offsetHeight;svg.setAttribute('width',W);svg.setAttribute('height',H);
+svg.innerHTML='<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3e4c59"/></marker></defs>';
+var o=wrap.getBoundingClientRect();
+function R(id){var e=document.getElementById(id);if(!e)return null;var r=e.getBoundingClientRect();return{l:r.left-o.left,r:r.right-o.left,t:r.top-o.top,b:r.bottom-o.top,x:(r.left+r.right)/2-o.left,y:(r.top+r.bottom)/2-o.top};}
+function P(d,dash){var p=document.createElementNS(NS,'path');p.setAttribute('d',d);p.setAttribute('fill','none');p.setAttribute('stroke','#3e4c59');p.setAttribute('stroke-width','2.2');if(dash)p.setAttribute('stroke-dasharray','6 5');p.setAttribute('marker-end','url(#ah)');svg.appendChild(p);}
+function T(x,y,s){var t=document.createElementNS(NS,'text');t.setAttribute('x',x);t.setAttribute('y',y);t.setAttribute('text-anchor','middle');t.setAttribute('font-size','13');t.setAttribute('fill','#3e4c59');t.setAttribute('font-family','Segoe UI,Arial,sans-serif');t.setAttribute('paint-order','stroke');t.setAttribute('stroke','#fff');t.setAttribute('stroke-width','4');t.textContent=s;svg.appendChild(t);}
+function link(a,b,dash){
+ if(Math.abs(a.y-b.y)<a.b-a.t&&Math.abs(a.y-b.y)<b.b-b.t&&(b.l>a.r||a.l>b.r)){var y=(Math.max(a.t,b.t)+Math.min(a.b,b.b))/2;if(b.l>a.r)P('M'+a.r+','+y+' L'+(b.l-2)+','+y,dash);else P('M'+a.l+','+y+' L'+(b.r+2)+','+y,dash);return;}
+ if(b.l>a.r+8){var mx=(a.r+b.l)/2;P('M'+a.r+','+a.y+' L'+mx+','+a.y+' L'+mx+','+b.y+' L'+(b.l-2)+','+b.y,dash);return;}
+ if(b.t>a.b){var my=a.b+(b.t-a.b)/2;P('M'+a.x+','+a.b+' L'+a.x+','+my+' L'+b.x+','+my+' L'+b.x+','+(b.t-2),dash);return;}
+ if(a.t>b.b){var my2=b.b+(a.t-b.b)/2;P('M'+a.x+','+a.t+' L'+a.x+','+my2+' L'+b.x+','+my2+' L'+b.x+','+(b.b+2),dash);return;}
+ P('M'+a.l+','+a.y+' L'+(b.r+2)+','+b.y,dash);}
+var n=document.querySelectorAll('.step').length;
+var F=[[],[1],[2],[3],[4],[5]];
+if(true){for(var i=0;i<F.length;i++){F[i].forEach(function(f){var a=R('s'+f),b=R('s'+(i+1));if(a&&b)link(a,b,false);});}}
+var c=R('hubc');if(c){var sides={l:[],r:[]};for(var j=1;j<=n;j++){var s=R('s'+j);if(s)(s.x<c.x?sides.l:sides.r).push(s);}
+ ['l','r'].forEach(function(k){var a=sides[k];a.forEach(function(s,i){var y=c.t+(i+1)*(c.b-c.t)/(a.length+1),x=k=='l'?c.l:c.r,sx=k=='l'?s.r:s.l,mx=(sx+x)/2;
+ var p=document.createElementNS(NS,'path');p.setAttribute('d','M'+sx+','+s.y+' C'+mx+','+s.y+' '+mx+','+y+' '+x+','+y);p.setAttribute('fill','none');p.setAttribute('stroke','#7b8794');p.setAttribute('stroke-width','2.2');svg.appendChild(p);
+ var d=document.createElementNS(NS,'circle');d.setAttribute('cx',x);d.setAttribute('cy',y);d.setAttribute('r','4');d.setAttribute('fill','#7b8794');svg.appendChild(d);});});}
+var L=[];
+L.forEach(function(k){var a=R('s'+k.from),b=R('s'+k.to);if(!a||!b)return;
+ if(b.b<a.t){var xa=a.l+(a.r-a.l)*0.78,xb=b.l+(b.r-b.l)*0.78,my=(b.b+a.t)/2;P('M'+xa+','+a.t+' L'+xa+','+my+' L'+xb+','+my+' L'+xb+','+(b.b+2),true);if(k.label)T(xa+12+k.label.length*3.6,(a.t+my)/2+5,k.label);return;}
+ var lo=Math.max(a.b,b.b)+26;P('M'+a.x+','+a.b+' C'+a.x+','+lo+' '+b.x+','+lo+' '+b.x+','+(b.b+2),true);if(k.label)T((a.x+b.x)/2,lo-6,k.label);});
+})();
+</script>
+</body></html>

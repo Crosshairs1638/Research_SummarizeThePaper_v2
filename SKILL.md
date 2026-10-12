@@ -5,6 +5,12 @@ description: Read and summarize one or a small set of research papers from a DOI
 
 # Research paper reading
 
+<!-- skill-diagram:begin (Repo_SkillAutomaticCommitPush New-SkillDiagram.ps1 rewrites this block) -->
+![Research_SummarizeThePaper mechanism, diagram v1 - Research_SummarizeThePaper_mechanism_v1](Skill_Diagram/v1/Research_SummarizeThePaper_mechanism_v1.png)
+
+*Mechanism diagram v1* - page: [Research_SummarizeThePaper_mechanism_v1.html](Skill_Diagram/v1/Research_SummarizeThePaper_mechanism_v1.html).
+<!-- skill-diagram:end -->
+
 Read the primary paper before summarizing it. Open the full text when available, including methods, results, figures or tables needed for the user's question, and discussion. If only an abstract is accessible, say so prominently and limit the conclusions to what it supports. Do not infer details from the title or abstract alone.
 
 ## Extract the evidence
